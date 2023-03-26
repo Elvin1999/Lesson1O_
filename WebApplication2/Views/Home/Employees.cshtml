@@ -1,0 +1,24 @@
+﻿@*@model IEnumerable<WebApplication2.Entities.Employee>
+
+    <section>
+        @foreach(var item in Model){
+            <div>
+            <h1>Firstname : @item.Firstname</h1>
+            <h1>Firstname : @item.Lastname</h1>
+            </div>
+            <span>USER ID : @item.Id</span>
+            <hr />
+        }
+    </section>*@
+
+
+@model WebApplication2.Models.EmployeStudentListViewModel
+
+<h1>Students</h1>
+@foreach(var item in Model.Students){
+    <h2>@item.Name</h2>
+}
+<h1>Employees</h1>
+@foreach(var item in Model.Employees){
+    <h2>@item.Firstname</h2>
+}
