@@ -1,4 +1,8 @@
-﻿@*@model IEnumerable<WebApplication2.Entities.Employee>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@model IEnumerable<WebApplication2.Entities.Employee>
 
     <section>
         @foreach(var item in Model){
@@ -9,16 +13,67 @@
             <span>USER ID : @item.Id</span>
             <hr />
         }
-    </section>*@
-
+    </section>
+*@
 
 @model WebApplication2.Models.EmployeStudentListViewModel
 
-<h1>Students</h1>
+@*<h1>Students</h1>
 @foreach(var item in Model.Students){
     <h2>@item.Name</h2>
+}*@
+
+@{
+    string color = "";
 }
-<h1>Employees</h1>
+
+<h1>employees</h1>
 @foreach(var item in Model.Employees){
-    <h2>@item.Firstname</h2>
+    @if(item.Id%2==0){
+        color = "red";
+    }
+    else{
+        color = "green";
+    }
+    <h2 style="color:@color">@item.Firstname</h2>
 }
+
+
+<footer>
+   @* @try
+    {
+        throw new ArgumentNullException("Data bosh geldi");
+    }
+    catch (Exception ex)
+    {
+        <h1 style="color:red;">@ex.Message</h1>
+    }*@
+
+
+    @*@for (int i = 0; i < Model.Employees.Count; i++)
+    {
+        <h2>@Model.Employees[i].Lastname</h2>
+    }*@
+
+    <p>elvin.camalzade@gmail.com</p>
+    <a> I am @@home</a>
+
+
+    <p>
+    Current Date @DateTime.Now.ToLongDateString()
+</p>
+
+
+<p>
+        3 days ago was @{
+            var different = DateTime.Now - TimeSpan.FromDays(3);
+        }
+        @different
+</p>
+
+
+<h1 style="color:springreen">@ViewBag.Info</h1>
+    <h1 style="color:springreen">@ViewData["apple"]</h1>
+
+
+</footer>

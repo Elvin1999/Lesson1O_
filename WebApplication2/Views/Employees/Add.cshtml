@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model WebApplication2.Models.EmployeeAddViewModel
+<!Doctype html>
+
+<html>
+<head>
+    <title>Add</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <form asp-controller="Employees" asp-action="Add" class="form-group">
+        <section class="form-group">
+            <label asp-for="Employee.Id"></label>  <input asp-for="Employee.Id" />
+            <span class="text-danger" asp-validation-for="Employee.Id"></span>
+        </section>
+        <section class="form-group">
+            <label asp-for="Employee.Firstname"></label>  <input asp-for="Employee.Firstname" />
+            <span class="text-danger" asp-validation-for="Employee.Firstname"></span>
+
+        </section>
+        <section class="form-group">
+            <label asp-for="Employee.Lastname"></label>  <input asp-for="Employee.Lastname" />
+            <span class="text-danger" asp-validation-for="Employee.Lastname"></span>
+        </section>
+        <section>
+            <label asp-for="Employee.CityId"></label>
+            <select asp-for="Employee.CityId" asp-items="Model.Cities"></select>
+        </section>
+        <button class="btn btn-outline-primary" type="submit">Add</button>
+    </form>
+
+
+</body>
+
+</html>

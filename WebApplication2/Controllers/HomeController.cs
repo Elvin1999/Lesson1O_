@@ -12,9 +12,10 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Hello from our first Web App";
+            TempData["SomeName"] = "Hello";
+            return View();
         }
         public ViewResult Index2()
         {
@@ -185,6 +186,8 @@ namespace WebApplication2.Controllers
                 Employees = employees,
                 Students = students
             };
+            ViewBag.Info = TempData["SomeName"];
+            ViewData["apple"] = new { Name = "Apple", Price = 100 };
             return View(vm);
         }
     }
